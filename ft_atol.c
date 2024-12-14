@@ -1,46 +1,48 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_atoi.c                                          :+:      :+:    :+:   */
+/*   ft_atol.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gyeepach <gyeepach@student.42bangkok.com>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/18 17:00:03 by gyeepach          #+#    #+#             */
-/*   Updated: 2024/03/01 08:10:04 by gyeepach         ###   ########.fr       */
+/*   Updated: 2024/11/17 22:04:45 by gyeepach         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static int	ft_isspace(int c)
+void	error(void)
 {
-	c = (unsigned char)c;
-	if ((c > 8 && c < 14) || (c == 32))
-		return (1);
-	return (0);
+	write(2, "Error\n", 6);
+	exit(1);
 }
 
-int	ft_atoi(const char *nptr)
+long	ft_atol(const char *str)
 {
-	int	sign;
-	int	res;
-	int	i;
+	long	result;
+	int		sign;
+	int		digit;
 
-	i = 0;
+	result = 0;
 	sign = 1;
-	res = 0;
-	while (ft_isspace(nptr[i]))
-		i++;
-	if (nptr[i] == '+' || nptr[i] == '-')
+	if (*str == '-')
 	{
-		if (nptr[i] == '-')
-			sign *= -1;
-		i++;
+		sign = -1;
+		str++;
 	}
-	while (nptr[i] >= '0' && nptr[i] <= '9')
+	else if (*str == '+')
+		str++;
+	while (*str)
 	{
-		res = res * 10 + (nptr[i] - '0');
-		i++;
+		if (*str < '0' || *str > '9')
+			error();
+		digit = *str - '0';
+		if ((sign == 1 && (result > (INT_MAX - digit) / 10))
+			|| (sign == -1 && (result > ((long)INT_MAX + 1 - digit) / 10)))
+			error();
+		result = result * 10 + digit;
+		str++;
 	}
-	return (res *= sign);
+	return ((int)result * sign);
 }

@@ -6,7 +6,7 @@
 /*   By: gyeepach <gyeepach@student.42bangkok.com>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/27 17:38:04 by gyeepach          #+#    #+#             */
-/*   Updated: 2024/03/01 14:58:00 by gyeepach         ###   ########.fr       */
+/*   Updated: 2024/11/17 22:10:15 by gyeepach         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@
 # include <stdlib.h>
 # include <limits.h>
 # include <unistd.h>
+# include <stdbool.h>
 
 typedef struct s_list
 {
@@ -42,7 +43,7 @@ int		ft_isdigit(int c);
 int		ft_isprint(int c);
 int		ft_memcmp(const void *s1, const void *s2, size_t n);
 int		ft_toupper(int c);
-int		ft_atoi(const char *nptr);
+long	ft_atol(const char *nptr);
 int		ft_strncmp(const char *s1, const char *s2, size_t n);
 int		ft_tolower(int c);
 char	*ft_strnstr(const char *big, const char *little, size_t len);

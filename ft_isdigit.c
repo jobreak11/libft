@@ -6,7 +6,7 @@
 /*   By: gyeepach <gyeepach@student.42bangkok.com>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/14 17:41:22 by gyeepach          #+#    #+#             */
-/*   Updated: 2024/03/01 08:09:33 by gyeepach         ###   ########.fr       */
+/*   Updated: 2024/11/11 22:35:59 by gyeepach         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,12 +18,3 @@ int	ft_isdigit(int c)
 		return (1);
 	return (0);
 }
-// #include <stdio.h>
-
-// int main()
-// {
-//     int a;
-
-//     a = 48;
-//     printf("%d\n", ft_isdigit(a));
-// }
